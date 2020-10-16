@@ -1,0 +1,11 @@
+<%= form_with(model: @task,local: true,url: task_path) do |format| %>
+  <%= format.label :task_name %>
+  <%= format.text_field :task_name %>
+  <%= format.label :deadline %>
+  <%= format.date_select :deadline %>
+  <%= format.label :priority %>
+  <%= format.text_field :priority %>
+  <%= format.label :status %>
+  <%= format.text_field :status %>
+  <%= format.submit "Edit" %>
+<% end %>
