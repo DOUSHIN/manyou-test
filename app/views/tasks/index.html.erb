@@ -1,0 +1,17 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
+<table>
+  <% @tasks.each do |task| %>
+    <tr>
+    <td><%= task.task_name %></td>
+    <td><%= task.deadline %></td>
+    <td><%= task.priority %></td>
+    <td><%= task.status %></td>
+    <td><%= link_to "Edit", edit_task_path(task.id) %></td>
+    <td><%= link_to "Delete", task_path(task.id), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "New Task", new_task_path %>
