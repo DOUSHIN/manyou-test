@@ -1,11 +1,15 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
 <%= form_with(model: @task,local: true,url: task_path) do |format| %>
   <%= format.label :task_name %>
   <%= format.text_field :task_name %>
   <%= format.label :deadline %>
   <%= format.date_select :deadline %>
   <%= format.label :priority %>
-  <%= format.text_field :priority %>
+  <%= format.select :priority,[['高','高'],['中','中'],['低','低']],include_blank:'選択してください' %>
   <%= format.label :status %>
-  <%= format.text_field :status %>
+  <%= format.select :status,[['未着手','未着手'],['着手','着手'],['完了','完了']],include_blank:'選択してください' %>
   <%= format.submit "Edit" %>
 <% end %>
